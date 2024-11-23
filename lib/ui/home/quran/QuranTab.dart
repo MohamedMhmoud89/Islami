@@ -127,6 +127,30 @@ class QuranTab extends StatelessWidget {
             flex: 1,
             child:
                 Image(image: AssetImage('assets/images/quran_header_icn.png'))),
+        Container(
+          decoration: BoxDecoration(
+              color: Theme.of(context).primaryColor,
+              border: Border.all(
+                width: 1,
+                color: Theme.of(context).primaryColor,
+              )),
+        ),
+        Text(
+          'اسم السوره',
+          style: TextStyle(
+              fontWeight: FontWeight.w400,
+              color: Color(0XFF242424),
+              fontFamily: 'ElMessiri',
+              fontSize: 24),
+        ),
+        Container(
+          decoration: BoxDecoration(
+              color: Theme.of(context).primaryColor,
+              border: Border.all(
+                width: 1,
+                color: Theme.of(context).primaryColor,
+              )),
+        ),
         Expanded(
           flex: 2,
           child: ListView.separated(

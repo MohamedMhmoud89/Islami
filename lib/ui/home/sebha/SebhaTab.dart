@@ -7,7 +7,12 @@ class SebhaTab extends StatefulWidget {
 
 class _SebhaTabState extends State<SebhaTab> {
   int tasbihCount = 0;
-  List<String> tasbihName = ["سبحان الله ", 'الحمد لله', 'الله اكبر','لا إله إلا الله'];
+  List<String> tasbihName = [
+    "سبحان الله ",
+    'الحمد لله',
+    'الله اكبر',
+    'لا إله إلا الله'
+  ];
   int tasbihNameIndex = 0;
   double digree = 0;
 
@@ -28,11 +33,14 @@ class _SebhaTabState extends State<SebhaTab> {
                     'assets/images/head of seb7a.png',
                     fit: BoxFit.fill,
                   )),
-              Transform.rotate(angle: digree,child: GestureDetector(onTap: () {
-                tasbih();
-              },child: Image.asset('assets/images/body of seb7a.png')))
+              Transform.rotate(
+                  angle: digree,
+                  child: GestureDetector(
+                      onTap: () {
+                        tasbih();
+                      },
+                      child: Image.asset('assets/images/body of seb7a.png')))
             ],
-
           ),
           Text(
             'عدد التسبيحات',
@@ -78,7 +86,8 @@ class _SebhaTabState extends State<SebhaTab> {
       ),
     );
   }
-  void tasbih(){
+
+  void tasbih() {
     if (tasbihCount == 33) {
       if (tasbihNameIndex == 3) {
         tasbihCount = 0;
@@ -94,4 +103,3 @@ class _SebhaTabState extends State<SebhaTab> {
     setState(() {});
   }
 }
-
