@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:islami/ui/chapterDetials/Chapter_Details_Screen.dart';
+import 'package:islami/ui/hadethDetials/HadethDetialsScreen.dart';
+import 'package:islami/ui/home/hadith/hadeth.dart';
 
-class ChapterTitleWidget extends StatelessWidget {
-  String suraName;
-  int index;
+class Hadethtitlewidget extends StatelessWidget {
+  Hadeth hadeth;
 
-  ChapterTitleWidget(this.suraName, this.index);
+  Hadethtitlewidget(this.hadeth);
+
   @override
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        Navigator.of(context).pushNamed(ChapterDetailsScreen.routeName,
-            arguments: ChapterDetailsScreenArg(suraName, index));
+        Navigator.of(context).pushNamed(HadethDetialsScreen.routeName,
+            arguments: HadethDetailsScreenArg(hadeth.content, hadeth.title));
       },
       child: Text(
-        suraName,
+        hadeth.title,
         textAlign: TextAlign.center,
         style: TextStyle(
             fontWeight: FontWeight.w400,
