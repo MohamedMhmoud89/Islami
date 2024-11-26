@@ -49,7 +49,7 @@ class _HadithTabState extends State<HadithTab> {
           ),
         ),
         Expanded(
-            flex: 2,
+            flex: 3,
             child: allHadethList.isEmpty
                 ? Center(child: CircularProgressIndicator())
                 : ListView.separated(
@@ -60,8 +60,8 @@ class _HadithTabState extends State<HadithTab> {
                           color: Theme.of(context).primaryColor,
                           height: 10,
                           thickness: 1.5,
-                          endIndent: 40,
-                          indent: 40,
+                          endIndent: 10,
+                          indent: 10,
                         ),
                     itemCount: allHadethList.length))
       ],
@@ -82,7 +82,7 @@ class _HadithTabState extends State<HadithTab> {
       Hadeth hadeth = Hadeth(title, content);
       hadethList.add(hadeth);
     }
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 1));
     allHadethList = hadethList;
     setState(() {});
   }
