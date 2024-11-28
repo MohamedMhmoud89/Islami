@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/ui/theme/MyThemeData.dart';
 
 class LanguageBottomSheet extends StatefulWidget {
@@ -12,19 +13,20 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 30),
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.4,
+      height: MediaQuery.of(context).size.height * 0.2,
       decoration: BoxDecoration(
         color: MyThemeData.isDarkEnable ? Color(0xff141A2E) : Color(0xffF8F8F8),
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.only(
+            topRight: Radius.circular(10), topLeft: Radius.circular(10)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          selectedItem('English'),
+          selectedItem(AppLocalizations.of(context)!.arabic),
           SizedBox(
             height: 10,
           ),
-          unSelectedItem('Arabic'),
+          unSelectedItem(AppLocalizations.of(context)!.english),
         ],
       ),
     );
