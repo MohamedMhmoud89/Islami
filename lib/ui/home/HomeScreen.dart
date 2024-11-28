@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/ui/home/hadith/HadithTab.dart';
 import 'package:islami/ui/home/quran/QuranTab.dart';
 import 'package:islami/ui/home/radio/RadioTab.dart';
@@ -27,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
               fit: BoxFit.fill)),
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Islami'),
+          title: Text(AppLocalizations.of(context)!.app_name),
         ),
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -44,23 +45,23 @@ class _HomeScreenState extends State<HomeScreen> {
                   BottomNavigationBarItem(
                       icon:
                           ImageIcon(AssetImage("assets/images/quran_icn.png")),
-                      label: 'Quran'),
+                      label: AppLocalizations.of(context)!.quran),
                   BottomNavigationBarItem(
                       icon:
                           ImageIcon(AssetImage("assets/images/hadith_icn.png")),
-                      label: 'Hadith'),
+                      label: AppLocalizations.of(context)!.hadith),
                   BottomNavigationBarItem(
                       icon:
                           ImageIcon(AssetImage("assets/images/sebha_icn.png")),
-                      label: 'Sebha'),
+                      label: AppLocalizations.of(context)!.tasbeh),
                   BottomNavigationBarItem(
                       icon:
                           ImageIcon(AssetImage("assets/images/radio_icn.png")),
-                      label: 'Radio'),
+                      label: AppLocalizations.of(context)!.radio),
                   BottomNavigationBarItem(
                       backgroundColor: Theme.of(context).primaryColor,
                       icon: Icon(Icons.settings),
-                      label: 'Setting'),
+                      label: AppLocalizations.of(context)!.setting),
                 ]),
           ),
         ),

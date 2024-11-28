@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/ui/home/setting/LanguageBottomSheet.dart';
 import 'package:islami/ui/home/setting/ThemeBottomSheet.dart';
 import 'package:islami/ui/home/setting/settingWidget.dart';
@@ -25,8 +26,8 @@ class _SettingTabState extends State<SettingTab> {
                   showThemeBottomSheet();
                 },
                 child: SettingWidget(
-                  title: 'Theme',
-                  choose: 'Light',
+                  title: AppLocalizations.of(context)!.theme,
+                  choose: AppLocalizations.of(context)!.dark,
                 )),
             SizedBox(
               height: height * 0.05,
@@ -36,8 +37,8 @@ class _SettingTabState extends State<SettingTab> {
                   howLanguageBottomSheet();
                 },
                 child: SettingWidget(
-                  title: 'Language',
-                  choose: 'English',
+                  title: AppLocalizations.of(context)!.language,
+                  choose: AppLocalizations.of(context)!.arabic,
                 )),
           ],
         ));
