@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami/ui/theme/MyThemeData.dart';
 
 class VersWidget extends StatelessWidget {
   String content;
@@ -12,7 +13,8 @@ class VersWidget extends StatelessWidget {
       textAlign: TextAlign.center,
       style: TextStyle(
           fontWeight: FontWeight.w400,
-          color: Color(0XFF242424),
+          color:
+              MyThemeData.isDarkEnable ? Color(0xffFACC1D) : Color(0XFF242424),
           fontSize: 20,
           fontFamily: 'Elgharib'),
     );

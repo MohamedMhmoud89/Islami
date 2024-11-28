@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami/ui/theme/MyThemeData.dart';
 
 class SettingWidget extends StatelessWidget {
   String title;
@@ -13,9 +14,17 @@ class SettingWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(
-          title,
-          style: TextStyle(fontSize: 16),
+        Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: Text(
+            title,
+            style: TextStyle(
+                fontSize: 16,
+                fontFamily: 'ElMessiri',
+                color: MyThemeData.isDarkEnable
+                    ? Color(0xffF8F8F8)
+                    : Color(0xff242424)),
+          ),
         ),
         SizedBox(
           height: height * 0.01,
@@ -23,7 +32,9 @@ class SettingWidget extends StatelessWidget {
         Container(
           padding: EdgeInsets.all(12),
           decoration: BoxDecoration(
-              color: Colors.white,
+              color: MyThemeData.isDarkEnable
+                  ? Color(0xff141A2E)
+                  : Color(0xffF8F8F8),
               borderRadius: BorderRadius.circular(6),
               border: Border.all(
                 width: 2,
@@ -31,7 +42,12 @@ class SettingWidget extends StatelessWidget {
               )),
           child: Text(
             choose,
-            style: TextStyle(fontSize: 18),
+            style: TextStyle(
+                fontSize: 18,
+                fontFamily: 'ElMessiri',
+                color: MyThemeData.isDarkEnable
+                    ? Color(0xffF8F8F8)
+                    : Color(0xff242424)),
           ),
         )
       ],

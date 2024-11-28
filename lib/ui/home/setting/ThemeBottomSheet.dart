@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami/ui/theme/MyThemeData.dart';
 
 class ThemeBottomSheet extends StatefulWidget {
   const ThemeBottomSheet({super.key});
@@ -15,6 +16,7 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.4,
       decoration: BoxDecoration(
+        color: MyThemeData.isDarkEnable ? Color(0xff141A2E) : Color(0xffF8F8F8),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -36,11 +38,18 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
       children: [
         Text(
           text,
-          style: TextStyle(fontSize: 20, color: Theme.of(context).primaryColor),
+          style: TextStyle(
+              fontFamily: 'ElMessiri',
+              fontSize: 20,
+              color: MyThemeData.isDarkEnable
+                  ? Color(0xffFACC1D)
+                  : Theme.of(context).primaryColor),
         ),
         Icon(
           Icons.check,
-          color: Theme.of(context).primaryColor,
+          color: MyThemeData.isDarkEnable
+              ? Color(0xffFACC1D)
+              : Theme.of(context).primaryColor,
         ),
       ],
     );
@@ -49,7 +58,11 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
   Widget unSelectedItem(String text) {
     return Text(
       text,
-      style: TextStyle(fontSize: 20),
+      style: TextStyle(
+        fontFamily: 'ElMessiri',
+        fontSize: 20,
+        color: MyThemeData.isDarkEnable ? Color(0xffF8F8F8) : Color(0xff242424),
+      ),
     );
   }
 }
