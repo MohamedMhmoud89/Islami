@@ -63,7 +63,7 @@ class _RadioTabState extends State<RadioTab> {
                           player: player,
                         ),
                     separatorBuilder: (context, index) => Divider(
-                          color: Theme.of(context).primaryColor,
+                          color: Theme.of(context).dividerColor,
                           height: 10,
                           thickness: 2,
                           indent: 10,

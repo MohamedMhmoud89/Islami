@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami/ui/theme/MyThemeData.dart';
 
 class SebhaTab extends StatefulWidget {
   @override
@@ -32,7 +33,9 @@ class _SebhaTabState extends State<SebhaTab> {
                   bottom: height * 0.24,
                   child: Image.asset(
                     height: height * 0.09,
-                    'assets/images/head of seb7a.png',
+                    MyThemeData.isDarkEnable
+                        ? 'assets/images/head of seb7a dark.png'
+                        : 'assets/images/head of seb7a.png',
                     fit: BoxFit.fill,
                   )),
               Transform.rotate(
@@ -42,14 +45,22 @@ class _SebhaTabState extends State<SebhaTab> {
                         tasbih();
                       },
                       child: Image.asset(
-                        'assets/images/body of seb7a.png',
+                        MyThemeData.isDarkEnable
+                            ? 'assets/images/body of seb7a dark.png'
+                            : 'assets/images/body of seb7a.png',
                         height: height * 0.3,
                       )))
             ],
           ),
           Text(
             'عدد التسبيحات',
-            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 25),
+            style: TextStyle(
+                fontFamily: 'ElMessiri',
+                color: MyThemeData.isDarkEnable
+                    ? Color(0XFFF8F8F8)
+                    : Color(0XFF242424),
+                fontWeight: FontWeight.w600,
+                fontSize: 25),
           ),
           Container(
             width: 70,
@@ -61,7 +72,10 @@ class _SebhaTabState extends State<SebhaTab> {
                 child: Text(
               '$tasbihCount',
               style: TextStyle(
-                  color: Colors.black,
+                  fontFamily: 'ElMessiri',
+                  color: MyThemeData.isDarkEnable
+                      ? Color(0XFFF8F8F8)
+                      : Color(0XFF242424),
                   fontSize: 25,
                   fontWeight: FontWeight.w400),
             )),
@@ -73,12 +87,15 @@ class _SebhaTabState extends State<SebhaTab> {
                   onTap: () {
                     tasbihCount = 0;
                     tasbihNameIndex = 0;
+                    digree = 0;
                     setState(() {});
                   },
                   child: Icon(
                     Icons.refresh_rounded,
                     size: 42,
-                    color: Theme.of(context).primaryColor,
+                    color: MyThemeData.isDarkEnable
+                        ? Color(0xffFACC1D)
+                        : Theme.of(context).primaryColor,
                   )),
               SizedBox(
                 width: width * 0.06,
@@ -91,14 +108,19 @@ class _SebhaTabState extends State<SebhaTab> {
                   width: 135,
                   height: 55,
                   decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColor,
+                      color: MyThemeData.isDarkEnable
+                          ? Color(0xffFACC1D)
+                          : Theme.of(context).primaryColor,
                       borderRadius: BorderRadius.circular(25)),
                   child: Center(
                     child: Text(
                       tasbihName[tasbihNameIndex],
                       style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 25,
+                          color: MyThemeData.isDarkEnable
+                              ? Color(0XFF242424)
+                              : Color(0XFFF8F8F8),
+                          fontSize: 22,
+                          fontFamily: 'ElMessiri',
                           fontWeight: FontWeight.w400),
                     ),
                   ),

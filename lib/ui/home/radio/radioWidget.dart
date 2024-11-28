@@ -1,6 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/model/RadioList.dart';
+import 'package:islami/ui/theme/MyThemeData.dart';
 
 class RadioWidget extends StatefulWidget {
   Radios radios;
@@ -29,7 +30,10 @@ class _RadioWidgetState extends State<RadioWidget> {
                   setState(() {});
                 },
                 icon: Icon(Icons.pause_rounded,
-                    color: Theme.of(context).primaryColor, size: 42))
+                    color: MyThemeData.isDarkEnable
+                        ? Color(0xffFACC1D)
+                        : Theme.of(context).primaryColor,
+                    size: 42))
             : IconButton(
                 onPressed: () {
                   isPlay = true;
@@ -37,7 +41,10 @@ class _RadioWidgetState extends State<RadioWidget> {
                   setState(() {});
                 },
                 icon: Icon(Icons.play_arrow_rounded,
-                    color: Theme.of(context).primaryColor, size: 42)),
+                    color: MyThemeData.isDarkEnable
+                        ? Color(0xffFACC1D)
+                        : Theme.of(context).primaryColor,
+                    size: 42)),
         SizedBox(
           width: width * 0.8,
           child: Padding(
@@ -47,6 +54,9 @@ class _RadioWidgetState extends State<RadioWidget> {
               textDirection: TextDirection.rtl,
               style: TextStyle(
                   fontFamily: 'ElMessiri',
+                  color: MyThemeData.isDarkEnable
+                      ? Colors.white
+                      : Color(0xff242424),
                   fontSize: width * 0.05,
                   fontWeight: FontWeight.w600),
             ),

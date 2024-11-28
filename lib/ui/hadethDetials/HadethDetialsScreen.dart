@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami/ui/hadethDetials/HadethWidget.dart';
+import 'package:islami/ui/theme/MyThemeData.dart';
 
 class HadethDetialsScreen extends StatelessWidget {
   static const String routeName = 'hadethDetials';
@@ -11,7 +12,9 @@ class HadethDetialsScreen extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('assets/images/main_background.png'),
+            image: AssetImage(MyThemeData.isDarkEnable
+                ? 'assets/images/home_dark_background.jpg'
+                : 'assets/images/main_background.png'),
             fit: BoxFit.fill),
       ),
       child: Scaffold(

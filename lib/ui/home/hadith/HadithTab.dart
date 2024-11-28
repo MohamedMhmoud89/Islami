@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/ui/home/hadith/HadethTitleWidget.dart';
 import 'package:islami/ui/home/hadith/hadeth.dart';
+import 'package:islami/ui/theme/MyThemeData.dart';
 
 class HadithTab extends StatefulWidget {
   @override
@@ -24,27 +25,26 @@ class _HadithTabState extends State<HadithTab> {
         ),
         Container(
           decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor,
             border: Border.all(
               width: 1,
-              color: Theme.of(context).primaryColor,
+              color: Theme.of(context).dividerColor,
             ),
           ),
         ),
-        const Text(
+        Text(
           'الأحاديث',
           style: TextStyle(
               fontFamily: 'ElMessiri',
               fontWeight: FontWeight.w400,
-              color: Color(0XFF242424),
+              color:
+                  MyThemeData.isDarkEnable ? Colors.white : Color(0XFF242424),
               fontSize: 24),
         ),
         Container(
           decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor,
             border: Border.all(
               width: 1,
-              color: Theme.of(context).primaryColor,
+              color: Theme.of(context).dividerColor,
             ),
           ),
         ),
@@ -57,7 +57,7 @@ class _HadithTabState extends State<HadithTab> {
                       return Hadethtitlewidget(allHadethList[index]);
                     },
                     separatorBuilder: (context, index) => Divider(
-                          color: Theme.of(context).primaryColor,
+                          color: Theme.of(context).dividerColor,
                           height: 10,
                           thickness: 1.5,
                           endIndent: 10,

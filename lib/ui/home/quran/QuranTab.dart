@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami/ui/home/quran/ChapterTitleWidghet.dart';
+import 'package:islami/ui/theme/MyThemeData.dart';
 
 class QuranTab extends StatelessWidget {
   List<String> name = [
@@ -129,27 +130,24 @@ class QuranTab extends StatelessWidget {
                 Image(image: AssetImage('assets/images/quran_header_icn.png'))),
         Container(
           decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
               border: Border.all(
-                width: 1,
-                color: Theme.of(context).primaryColor,
-              )),
+            width: 1,
+            color: Theme.of(context).dividerColor,
+          )),
         ),
         Text(
           'اسم السوره',
           style: TextStyle(
               fontWeight: FontWeight.w400,
-              color: Color(0XFF242424),
+              color:
+                  MyThemeData.isDarkEnable ? Colors.white : Color(0XFF242424),
               fontFamily: 'ElMessiri',
               fontSize: 24),
         ),
         Container(
           decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
-              border: Border.all(
-                width: 1,
-                color: Theme.of(context).primaryColor,
-              )),
+              border:
+                  Border.all(width: 1, color: Theme.of(context).dividerColor)),
         ),
         Expanded(
           flex: 3,
@@ -158,7 +156,7 @@ class QuranTab extends StatelessWidget {
                 return ChapterTitleWidget(name[index], index);
               },
               separatorBuilder: (context, index) => Divider(
-                    color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).dividerColor,
                     height: 10,
                     thickness: 1.5,
                     endIndent: 10,

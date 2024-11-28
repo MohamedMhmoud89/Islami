@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami/ui/chapterDetials/Chapter_Details_Screen.dart';
+import 'package:islami/ui/theme/MyThemeData.dart';
 
 class ChapterTitleWidget extends StatelessWidget {
   String suraName;
@@ -20,7 +21,7 @@ class ChapterTitleWidget extends StatelessWidget {
         textDirection: TextDirection.rtl,
         style: TextStyle(
             fontWeight: FontWeight.w400,
-            color: Color(0XFF242424),
+            color: MyThemeData.isDarkEnable ? Colors.white : Color(0XFF242424),
             fontFamily: 'ElMessiri',
             fontSize: width * 0.06),
       ),
