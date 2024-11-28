@@ -25,11 +25,13 @@ class _SebhaTabState extends State<SebhaTab> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Stack(
+            clipBehavior: Clip.none,
             children: [
               Positioned(
-                  right: 90,
-                  bottom: 248,
+                  right: width * 0.2,
+                  bottom: height * 0.24,
                   child: Image.asset(
+                    height: height * 0.09,
                     'assets/images/head of seb7a.png',
                     fit: BoxFit.fill,
                   )),
@@ -39,7 +41,10 @@ class _SebhaTabState extends State<SebhaTab> {
                       onTap: () {
                         tasbih();
                       },
-                      child: Image.asset('assets/images/body of seb7a.png')))
+                      child: Image.asset(
+                        'assets/images/body of seb7a.png',
+                        height: height * 0.3,
+                      )))
             ],
           ),
           Text(
@@ -61,26 +66,45 @@ class _SebhaTabState extends State<SebhaTab> {
                   fontWeight: FontWeight.w400),
             )),
           ),
-          GestureDetector(
-            onTap: () {
-              tasbih();
-            },
-            child: Container(
-              width: 135,
-              height: 55,
-              decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
-                  borderRadius: BorderRadius.circular(25)),
-              child: Center(
-                child: Text(
-                  tasbihName[tasbihNameIndex],
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.w400),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              GestureDetector(
+                  onTap: () {
+                    tasbihCount = 0;
+                    tasbihNameIndex = 0;
+                    setState(() {});
+                  },
+                  child: Icon(
+                    Icons.refresh_rounded,
+                    size: 42,
+                    color: Theme.of(context).primaryColor,
+                  )),
+              SizedBox(
+                width: width * 0.06,
+              ),
+              GestureDetector(
+                onTap: () {
+                  tasbih();
+                },
+                child: Container(
+                  width: 135,
+                  height: 55,
+                  decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor,
+                      borderRadius: BorderRadius.circular(25)),
+                  child: Center(
+                    child: Text(
+                      tasbihName[tasbihNameIndex],
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w400),
+                    ),
+                  ),
                 ),
               ),
-            ),
+            ],
           ),
         ],
       ),

@@ -46,6 +46,16 @@ class _RadioTabState extends State<RadioTab> {
                 return Center(
                   child: CircularProgressIndicator(),
                 );
+              } else if (snapshot.data == null) {
+                return Center(
+                  child: Text(
+                    'التحقق من حالة اتصال الشبكة',
+                    style: TextStyle(
+                        fontSize: 24,
+                        color: Theme.of(context).primaryColor,
+                        fontFamily: 'ElMessiri'),
+                  ),
+                );
               } else {
                 return ListView.separated(
                     itemBuilder: (context, index) => RadioWidget(
