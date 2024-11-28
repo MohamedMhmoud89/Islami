@@ -17,6 +17,7 @@ class ChapterTitleWidget extends StatelessWidget {
       child: Text(
         suraName,
         textAlign: TextAlign.center,
+        textDirection: TextDirection.rtl,
         style: TextStyle(
             fontWeight: FontWeight.w400,
             color: Color(0XFF242424),

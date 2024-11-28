@@ -3,6 +3,7 @@ import 'package:islami/ui/home/hadith/HadithTab.dart';
 import 'package:islami/ui/home/quran/QuranTab.dart';
 import 'package:islami/ui/home/radio/RadioTab.dart';
 import 'package:islami/ui/home/sebha/SebhaTab.dart';
+import 'package:islami/ui/home/setting/settingTab.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home';
@@ -48,11 +49,21 @@ class _HomeScreenState extends State<HomeScreen> {
                   backgroundColor: Theme.of(context).primaryColor,
                   icon: ImageIcon(AssetImage("assets/images/radio_icn.png")),
                   label: 'Radio'),
+              BottomNavigationBarItem(
+                  backgroundColor: Theme.of(context).primaryColor,
+                  icon: Icon(Icons.settings),
+                  label: 'Setting'),
             ]),
         body: tabs[selectedIndexTab],
       ),
     );
   }
 
-  List<Widget> tabs = [QuranTab(), HadithTab(), SebhaTab(), RadioTab()];
+  List<Widget> tabs = [
+    QuranTab(),
+    HadithTab(),
+    SebhaTab(),
+    RadioTab(),
+    SettingTab()
+  ];
 }
