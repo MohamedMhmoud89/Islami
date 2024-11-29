@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami/provider/SettingProvider.dart';
 import 'package:islami/ui/home/hadith/HadethTitleWidget.dart';
 import 'package:islami/ui/home/hadith/hadeth.dart';
-import 'package:islami/ui/theme/MyThemeData.dart';
+import 'package:provider/provider.dart';
 
 class HadithTab extends StatefulWidget {
   @override
@@ -14,6 +15,7 @@ class _HadithTabState extends State<HadithTab> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<SettingProvider>(context);
     if (allHadethList.isEmpty) {
       readHadethFile();
     }
@@ -36,8 +38,9 @@ class _HadithTabState extends State<HadithTab> {
           style: TextStyle(
               fontFamily: 'ElMessiri',
               fontWeight: FontWeight.w400,
-              color:
-                  MyThemeData.isDarkEnable ? Colors.white : Color(0XFF242424),
+              color: provider.currentTheme == ThemeMode.dark
+                  ? Colors.white
+                  : Color(0XFF242424),
               fontSize: 24),
         ),
         Container(

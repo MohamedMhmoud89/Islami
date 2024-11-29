@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:islami/ui/theme/MyThemeData.dart';
+import 'package:islami/provider/SettingProvider.dart';
+import 'package:provider/provider.dart';
 
 class SebhaTab extends StatefulWidget {
   @override
@@ -21,6 +22,7 @@ class _SebhaTabState extends State<SebhaTab> {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
+    var provider = Provider.of<SettingProvider>(context);
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -33,7 +35,7 @@ class _SebhaTabState extends State<SebhaTab> {
                   bottom: height * 0.24,
                   child: Image.asset(
                     height: height * 0.09,
-                    MyThemeData.isDarkEnable
+                    provider.currentTheme == ThemeMode.dark
                         ? 'assets/images/head of seb7a dark.png'
                         : 'assets/images/head of seb7a.png',
                     fit: BoxFit.fill,
@@ -45,7 +47,7 @@ class _SebhaTabState extends State<SebhaTab> {
                         tasbih();
                       },
                       child: Image.asset(
-                        MyThemeData.isDarkEnable
+                        provider.currentTheme == ThemeMode.dark
                             ? 'assets/images/body of seb7a dark.png'
                             : 'assets/images/body of seb7a.png',
                         height: height * 0.3,
@@ -56,7 +58,7 @@ class _SebhaTabState extends State<SebhaTab> {
             'عدد التسبيحات',
             style: TextStyle(
                 fontFamily: 'ElMessiri',
-                color: MyThemeData.isDarkEnable
+                color: provider.currentTheme == ThemeMode.dark
                     ? Color(0XFFF8F8F8)
                     : Color(0XFF242424),
                 fontWeight: FontWeight.w600,
@@ -73,7 +75,7 @@ class _SebhaTabState extends State<SebhaTab> {
               '$tasbihCount',
               style: TextStyle(
                   fontFamily: 'ElMessiri',
-                  color: MyThemeData.isDarkEnable
+                  color: provider.currentTheme == ThemeMode.dark
                       ? Color(0XFFF8F8F8)
                       : Color(0XFF242424),
                   fontSize: 25,
@@ -93,7 +95,7 @@ class _SebhaTabState extends State<SebhaTab> {
                   child: Icon(
                     Icons.refresh_rounded,
                     size: 42,
-                    color: MyThemeData.isDarkEnable
+                    color: provider.currentTheme == ThemeMode.dark
                         ? Color(0xffFACC1D)
                         : Theme.of(context).primaryColor,
                   )),
@@ -108,7 +110,7 @@ class _SebhaTabState extends State<SebhaTab> {
                   width: 135,
                   height: 55,
                   decoration: BoxDecoration(
-                      color: MyThemeData.isDarkEnable
+                      color: provider.currentTheme == ThemeMode.dark
                           ? Color(0xffFACC1D)
                           : Theme.of(context).primaryColor,
                       borderRadius: BorderRadius.circular(25)),
@@ -116,7 +118,7 @@ class _SebhaTabState extends State<SebhaTab> {
                     child: Text(
                       tasbihName[tasbihNameIndex],
                       style: TextStyle(
-                          color: MyThemeData.isDarkEnable
+                          color: provider.currentTheme == ThemeMode.dark
                               ? Color(0XFF242424)
                               : Color(0XFFF8F8F8),
                           fontSize: 22,
