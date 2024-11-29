@@ -6,6 +6,7 @@ import 'package:islami/sharedPreferences/SharedPrefs.dart';
 import 'package:islami/ui/chapterDetials/Chapter_Details_Screen.dart';
 import 'package:islami/ui/hadethDetials/HadethDetialsScreen.dart';
 import 'package:islami/ui/home/HomeScreen.dart';
+import 'package:islami/ui/splash/SplashScreen.dart';
 import 'package:islami/ui/theme/MyThemeData.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -44,11 +45,12 @@ class MyApp extends StatelessWidget {
       ],
       locale: settingProvider.currentLanguage,
       routes: {
+        SplashScreen.routeName: (_) => SplashScreen(),
         HomeScreen.routeName: (_) => HomeScreen(),
         ChapterDetailsScreen.routeName: (_) => ChapterDetailsScreen(),
         HadethDetialsScreen.routeName: (_) => HadethDetialsScreen()
       },
-      initialRoute: HomeScreen.routeName,
+      initialRoute: SplashScreen.routeName,
     );
   }
 }
