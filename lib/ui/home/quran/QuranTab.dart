@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:islami/provider/SettingProvider.dart';
 import 'package:islami/ui/home/quran/ChapterTitleWidghet.dart';
+import 'package:provider/provider.dart';
 
 class QuranTab extends StatelessWidget {
   List<String> name = [
@@ -121,24 +123,47 @@ class QuranTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<SettingProvider>(context);
     return Column(
       children: [
         Expanded(
             flex: 1,
             child:
                 Image(image: AssetImage('assets/images/quran_header_icn.png'))),
+        Container(
+          decoration: BoxDecoration(
+              border: Border.all(
+            width: 1,
+            color: Theme.of(context).dividerColor,
+          )),
+        ),
+        Text(
+          'اسم السوره',
+          style: TextStyle(
+              fontWeight: FontWeight.w400,
+              color: provider.currentTheme == ThemeMode.dark
+                  ? Colors.white
+                  : Color(0XFF242424),
+              fontFamily: 'ElMessiri',
+              fontSize: 24),
+        ),
+        Container(
+          decoration: BoxDecoration(
+              border:
+                  Border.all(width: 1, color: Theme.of(context).dividerColor)),
+        ),
         Expanded(
-          flex: 2,
+          flex: 3,
           child: ListView.separated(
               itemBuilder: (context, index) {
                 return ChapterTitleWidget(name[index], index);
               },
               separatorBuilder: (context, index) => Divider(
-                    color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).dividerColor,
                     height: 10,
                     thickness: 1.5,
-                    endIndent: 40,
-                    indent: 40,
+                    endIndent: 10,
+                    indent: 10,
                   ),
               itemCount: name.length),
         )

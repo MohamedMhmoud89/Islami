@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami/provider/SettingProvider.dart';
 import 'package:islami/ui/chapterDetials/Vers_Widget.dart';
+import 'package:provider/provider.dart';
 
 class ChapterDetailsScreen extends StatefulWidget {
   static const String routeName = 'chapterDetails';
@@ -17,10 +19,11 @@ class _ChapterDetailsScreenState extends State<ChapterDetailsScreen> {
     if (verses.isEmpty) {
       loadFile(arg.index);
     }
+    var provider = Provider.of<SettingProvider>(context);
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/images/main_background.png'),
+              image: AssetImage(provider.changeBackgroundImage()),
               fit: BoxFit.fill)),
       child: Scaffold(
         appBar: AppBar(title: Text(arg.chapterName)),
@@ -49,6 +52,7 @@ class _ChapterDetailsScreenState extends State<ChapterDetailsScreen> {
   void loadFile(int index) async {
     String fileContent =
         await rootBundle.loadString('assets/files/${index + 1}.txt');
+    await Future.delayed(Duration(seconds: 2));
     verses = fileContent.split('\n');
     setState(() {});
   }
