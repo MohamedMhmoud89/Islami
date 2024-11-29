@@ -1,7 +1,8 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/model/RadioList.dart';
-import 'package:islami/ui/theme/MyThemeData.dart';
+import 'package:islami/provider/SettingProvider.dart';
+import 'package:provider/provider.dart';
 
 class RadioWidget extends StatefulWidget {
   Radios radios;
@@ -19,6 +20,7 @@ class _RadioWidgetState extends State<RadioWidget> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
+    var provider = Provider.of<SettingProvider>(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -30,7 +32,7 @@ class _RadioWidgetState extends State<RadioWidget> {
                   setState(() {});
                 },
                 icon: Icon(Icons.pause_rounded,
-                    color: MyThemeData.isDarkEnable
+                    color: provider.currentTheme == ThemeMode.dark
                         ? Color(0xffFACC1D)
                         : Theme.of(context).primaryColor,
                     size: 42))
@@ -41,7 +43,7 @@ class _RadioWidgetState extends State<RadioWidget> {
                   setState(() {});
                 },
                 icon: Icon(Icons.play_arrow_rounded,
-                    color: MyThemeData.isDarkEnable
+                    color: provider.currentTheme == ThemeMode.dark
                         ? Color(0xffFACC1D)
                         : Theme.of(context).primaryColor,
                     size: 42)),
@@ -54,7 +56,7 @@ class _RadioWidgetState extends State<RadioWidget> {
               textDirection: TextDirection.rtl,
               style: TextStyle(
                   fontFamily: 'ElMessiri',
-                  color: MyThemeData.isDarkEnable
+                  color: provider.currentTheme == ThemeMode.dark
                       ? Colors.white
                       : Color(0xff242424),
                   fontSize: width * 0.05,

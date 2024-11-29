@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:islami/ui/theme/MyThemeData.dart';
+import 'package:islami/provider/SettingProvider.dart';
+import 'package:provider/provider.dart';
 
 class SettingWidget extends StatelessWidget {
   String title;
@@ -11,6 +12,7 @@ class SettingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
+    var provider = Provider.of<SettingProvider>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -21,7 +23,7 @@ class SettingWidget extends StatelessWidget {
             style: TextStyle(
                 fontSize: 16,
                 fontFamily: 'ElMessiri',
-                color: MyThemeData.isDarkEnable
+                color: provider.currentTheme == ThemeMode.dark
                     ? Color(0xffF8F8F8)
                     : Color(0xff242424)),
           ),
@@ -32,7 +34,7 @@ class SettingWidget extends StatelessWidget {
         Container(
           padding: EdgeInsets.all(12),
           decoration: BoxDecoration(
-              color: MyThemeData.isDarkEnable
+              color: provider.currentTheme == ThemeMode.dark
                   ? Color(0xff141A2E)
                   : Color(0xffF8F8F8),
               borderRadius: BorderRadius.circular(6),
@@ -45,7 +47,7 @@ class SettingWidget extends StatelessWidget {
             style: TextStyle(
                 fontSize: 18,
                 fontFamily: 'ElMessiri',
-                color: MyThemeData.isDarkEnable
+                color: provider.currentTheme == ThemeMode.dark
                     ? Color(0xffF8F8F8)
                     : Color(0xff242424)),
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:islami/provider/SettingProvider.dart';
 import 'package:islami/ui/home/quran/ChapterTitleWidghet.dart';
-import 'package:islami/ui/theme/MyThemeData.dart';
+import 'package:provider/provider.dart';
 
 class QuranTab extends StatelessWidget {
   List<String> name = [
@@ -122,6 +123,7 @@ class QuranTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<SettingProvider>(context);
     return Column(
       children: [
         Expanded(
@@ -139,8 +141,9 @@ class QuranTab extends StatelessWidget {
           'اسم السوره',
           style: TextStyle(
               fontWeight: FontWeight.w400,
-              color:
-                  MyThemeData.isDarkEnable ? Colors.white : Color(0XFF242424),
+              color: provider.currentTheme == ThemeMode.dark
+                  ? Colors.white
+                  : Color(0XFF242424),
               fontFamily: 'ElMessiri',
               fontSize: 24),
         ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class MyThemeData {
-  static bool isDarkEnable = true;
   static ThemeData lightTheme = ThemeData(
     progressIndicatorTheme: ProgressIndicatorThemeData(
       color: Color(0xffB7935F),
